@@ -1,3 +1,5 @@
+import { token } from "./token";
+
 export const setInputValue = (value) => ({
     type: 'SET_INPUT_VALUE',
     payload: value,
@@ -15,7 +17,7 @@ export const setInputValue = (value) => ({
       try {
         const response = await fetch(`https://api.github.com/users/${username}`, {
           headers: {
-            Authorization: `Bearer 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`, // Replace with your personal access token
+            Authorization: `Bearer`+token, // Replace with your personal access token
           },
         });
         if (!response.ok) {
