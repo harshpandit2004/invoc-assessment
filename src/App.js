@@ -45,8 +45,10 @@ function App() {
       {userDetails[inputValue] && !userDetails[inputValue].error && (
         <div>
           <p>Username: {userDetails[inputValue].login}</p>
-          <p>Name: {userDetails[inputValue].name}</p>
-          <p>Location: {userDetails[inputValue].location}</p>
+          <p>name: {userDetails[inputValue].name}</p>
+          <p>company: {userDetails[inputValue].company}</p>
+          <p>email: {userDetails[inputValue].email}</p>
+          <img src={userDetails[inputValue].avatar_url} />
         </div>
       )}
     </div>
