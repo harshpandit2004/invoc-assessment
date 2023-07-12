@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setInputValue, fetchUserDetails } from "./actions";
+import UserCard from "./UserCard";
 
 function App() {
   const inputValue = useSelector((state) => state.inputValue);
@@ -37,19 +38,13 @@ function App() {
   };
 
   return (
-    <div>
-      <input type="text" value={inputValue} onChange={handleInputChange} />
+    <div className="App">
+      <input type="text" value={inputValue} onChange={handleInputChange} className="input" placeholder="Type in your username" />
       {userDetails[inputValue] && userDetails[inputValue].error && (
         <p>Error: {userDetails[inputValue].error.message}</p>
       )}
       {userDetails[inputValue] && !userDetails[inputValue].error && (
-        <div>
-          <p>Username: {userDetails[inputValue].login}</p>
-          <p>name: {userDetails[inputValue].name}</p>
-          <p>company: {userDetails[inputValue].company}</p>
-          <p>email: {userDetails[inputValue].email}</p>
-          <img src={userDetails[inputValue].avatar_url} />
-        </div>
+        <UserCard userDetails={userDetails} inputValue={inputValue} />
       )}
     </div>
   );
